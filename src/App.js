@@ -1,23 +1,48 @@
 import React from 'react';
+import { BrowserRouter as Router, Route,Switch, Redirect} from 'react-router-dom'
+import Dropzone from 'react-dropzone';
 import styled from "styled-components";
 import Background from './SVGs/Vector.svg';
 import './App.css';
+import Sizes from './pages/Sizes'
 
 const reqSvgs = require.context ( './SVGs', true, /\.svg$/ )
 const paths = reqSvgs.keys ()
 
 const svgs = paths.map( path => reqSvgs ( path ) )
-console.log(svgs[1]);
 
-function App() {
-  return (
-    <header >
+
+const reqSvgs2 = require.context ( './button', true, /\.svg$/ )
+const paths2 = reqSvgs2.keys ()
+
+const svgs2 = paths2.map( path => reqSvgs2 ( path ) )
+console.log(svgs);
+
+const imageClick = () => {
+  console.log('Click');
+  let path = '/Sizes';
+  this.props.history.push(path);
+} 
+class App extends React.Component {
+  imageClick = () => {
+    console.log('Click');
+    let path = '/Sizes';
+    this.props.history.push(path);
+  }
+  onDrop = (acceptedFiles) => {
+    console.log(acceptedFiles);
+    this.imageClick();
+  }
+  render (){
+
+      return(
+      <div>
+      <header >
         
-    <section  style={ background }>
-      <a className='headline'> Make Polaroid style retro pictures</a>
-      <Activity>
+      <section  style={ background }>
+      <h1 className='headline'> Make Polaroid style retro pictures</h1>
+      <Pictures>
       
-     
       <Arrange Class='pic1' count ={1}/>
       <Arrange Class='pic10' count ={2}/>
       <Arrange Class='pic11' count ={3}/>
@@ -29,22 +54,51 @@ function App() {
       <Arrange Class='pic7' count ={9}/>
       <Arrange Class='pic8' count ={10}/>
       <Arrange Class='pic9' count ={11}/>
+    
+      </Pictures>
+      <PButtons>
+      <div className='single'>
      
+      <Route path="/Sizes" component={Sizes} />
+      </div>
+      <div className='open'>
+      <img src={svgs2[1]}  alt="open" onClick={() => this.imageClick()} />
+      </div>
+      <div className='create'>
+      <img src={svgs2[2]}  alt="create" onClick={() => this.imageClick()} />
+      </div>
       
-      </Activity>
+      </PButtons>
+      <div className="dropzone">
+        <Dropzone onDrop={this.onDrop}>
+          {({getRootProps, getInputProps}) => (
+            <div {...getRootProps()}>
+              <input {...getInputProps()} />
+              <img src={svgs2[0]}  alt="single" />
+              
+            </div>
+          )}
+        </Dropzone>
+      </div>
       </section>
-      </header>
       
-  );
+      </header>
+     
+      </div>
+      )     
+
+      
+    };
   
 
 }
 function Arrange(props) {
-   return  <div class={props.Class}>
+   return  <div className={props.Class}>
       <img src={svgs[props.count]}  alt="logo" />
       </div>;
   
 }
+
 
 export default App;
 var background = {
@@ -57,11 +111,9 @@ var background = {
  
   
 };
-var top='100px'
-var left ='100px'
 
 
-const Activity = styled.div`
+const Pictures = styled.div`
   p {
     position: absolute;
     font-size: 26px;
@@ -73,7 +125,23 @@ const Activity = styled.div`
     top:var(top);
     left:var(left);
   }
-  img:hover {
+  img:hover{
     transform: scale(1.3);
   }
+`;
+const PButtons =styled.div`
+p {
+  position: absolute;
+  font-size: 26px;
+}
+img {
+  
+  transition: transform 0.1s;
+  position: absolute;
+  top:var(top);
+  left:var(left);
+}
+img:hover{
+  transform: scale(1.05);
+}
 `;
