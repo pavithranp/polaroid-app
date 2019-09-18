@@ -1,11 +1,9 @@
-.App {
-  text-align: center;
-}
+
 
 .headline{
   position: absolute;
   left: 15px;
-  top: 15px;
+  /* top: 15px; */
   width: 150px;
   height: 309px;
   vertical-align: left;
@@ -19,68 +17,14 @@
   color: #FDFDFD;
 
 }
-.pic1 {
-  position: relative;
-  top: 647px;
-  left: 62px;
-}
-.pic2 {
-  position: relative;
-  top: 366px;
-  left: 524px;
-}
-.pic3 {
-  position: relative;
-  top: 176px;
-  left: 335px;
-}
-.pic4 {
-  position: relative;
-  top: 171px;
-  left: 612px;
-}
-.pic5 {
-  position: relative;
-  top: 633px;
-  left: 339px;
-}
-.pic6 {
-  position: relative;
-  top: 18px;
-  left: 880px;
-}
-.pic7 {
-  position: relative;
-  top: 223px;
-  left: 862px;
-}
-.pic8 {
-  position: relative;
-  top: 661px;
-  left: 606px;
-}
-.pic9 {
-  position: relative;
-  top: 21px;
-  left: 606px;
-}
-.pic10 {
-  position: relative;
-  top: 449px;
-  left: 713px;
-}
-.pic11 {
-  position: relative;
-  top: 391px;
-  left: 224px;
-}
+
 .open {
-  position: relative;
+  position: absolute;
   top: 532px;
   left: 1181px;
 }
 .create {
-  position: relative;
+  position: absolute;
   top: 617px;
   left: 1181px;
 }
