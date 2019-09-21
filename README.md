@@ -3,7 +3,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 
 In the project directory, you can run:
-
+file:///home/pavithran/Downloads/Desktop%20(2).jpg
 ### `npm start`
 
 Runs the app in the development mode.<br>
