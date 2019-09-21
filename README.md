@@ -1,5 +1,5 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+App under Dev
 ![alt text](https://github.com/pavithranp/polaroid-app/blob/master/src/pages/design.jpg)
 
 ## Available Scripts
